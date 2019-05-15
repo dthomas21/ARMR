@@ -1,0 +1,25 @@
+API
+===
+.. automodule:: deploy
+    :members:
+    :undoc-members:
+
+.. automodule:: retrain
+    :members:
+    :undoc-members:
+
+.. automodule:: app.classes
+    :members:
+    :undoc-members:
+
+.. automodule:: app.forms
+    :members:
+    :undoc-members:
+
+.. automodule:: app.nlp
+    :members:
+    :undoc-members:
+
+.. automodule:: app.routes
+    :members:
+    :undoc-members:

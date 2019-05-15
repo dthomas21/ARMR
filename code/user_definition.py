@@ -1,0 +1,9 @@
+ec2_address = "ec2-54-191-39-26.us-west-2.compute.amazonaws.com"
+user = "ec2-user"
+key_file = "/nkkacirek.pem"
+git_repo_owner = "MSDS698"
+git_repo_name = "ARMR"
+git_user_id = "nkacirek1"
+aws_access_key_id = None
+aws_secret_access_key = None
+bucket_name = 'msds-armr'

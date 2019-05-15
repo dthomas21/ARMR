@@ -1,0 +1,197 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block head %}
+  {{ super() }}
+  {% include 'head.html' %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .card-img-top.img-rounded {
+      height: 100%;
+      object-fit: cover;
+      overflow-y: auto;
+      position: fixed;
+    }
+
+    .shadow-lg.bg-white.rounded {
+      width: 75%;
+    }
+
+    .card {
+	   font-size: 19px;
+	}
+
+  </style>
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	<div class="card">
+	  <img class="card-img-top img-rounded" src={{ url_for('static',filename='background.png') }}>
+	  <div class="card-img-overlay mx-auto">
+	    <br/>
+	    <center><h2>Physician's Record</h2></center>
+	      {% include 'flash.html' %}
+	    	<br/>
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">History</h4>
+				<div class="card-body">	
+					{{ '\t' + result['history of present illness']['text'] }}
+					<br/>
+					<br/>
+					{{ wtf.form_field(form.history_present_diseases, cols="20", rows="5") }}
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Past Medical and Surgical History</h4>
+				<div class="card-body">	
+					{{ '\t' + result['past medical and surgical history']['text'] }}
+					<br/>
+					<br/>
+					{{ wtf.form_field(form.history_past_diseases, cols="20", rows="5") }}
+				</div>
+			</div>
+	      </div>
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Medications</h4>
+				<div class="card-body">
+					{{ '\t' + result['medications prior to admission']['text'] }}
+					<br/>
+					<br/>
+					{{ wtf.form_field(form.medications, cols="20", rows="5") }}
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Allergies</h4>
+				<div class="card-body">	
+					{{ '\t' + result['allergies']['text'] }}
+					<br/>
+					<br/>
+					{{ wtf.form_field(form.allergy_medications, cols="20", rows="5") }}
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Family History</h4>
+				<div class="card-body">	
+					{{ '\t' + result['family history']['text'] }}
+					<br/>
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Social History</h4>
+				<div class="card-body">	
+					{{ '\t' + result['social history']['text'] }}
+					<br/>
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Review of Systems</h4>
+				<div class="card-body">	
+					{{ '\t' + result['review of systems']['text'] }}
+					<br/>
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Examination</h4>
+				<div class="card-body">	
+					{{ '\t' + result['physical examination']['text'] }}
+					<br/>
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Laboratory</h4>
+				<div class="card-body">	
+					{{ '\t' + result['electrocardiogram']['text'] }}
+					<br/>
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Assessment</h4>
+				<div class="card-body">	
+					{{ '\t' + result['impression']['text'] }}
+					<br/>
+					<br/>
+					{{ wtf.form_field(form.assessment_diseases, cols="20", rows="5") }}
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+
+	      <div class="shadow-lg bg-white rounded mx-auto">
+	        <div class="card" style="border-color: grey;">
+				<h4 class="card-header text-white" style="background-color: #040640">Plan</h4>
+				<div class="card-body">	
+					{{ '\t' + result['recommendations']['text'] }}
+					<br/>
+				</div>
+			</div>
+	      </div>
+
+	      <br/>
+	      <center> {{ wtf.form_field(form.submit)}} </center>
+	      <br/>
+
+	    </div>
+	</div> 
+</form>
+
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+
+{% endblock %}

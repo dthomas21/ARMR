@@ -1,0 +1,52 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    {% include 'head.html' %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    .card-img-top.img-rounded {
+      height: 100%;
+      max-height: 95vh;
+      object-fit: cover;
+      position: fixed;
+    }
+    
+    .shadow-lg{
+      width: 35rem;
+    }
+  </style>
+{% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card">
+  <img class="card-img-top img-rounded" src={{ url_for('static',filename='background.png') }}>
+  <div class="card-img-overlay mx-auto">
+    {% include 'flash.html' %}
+    <br/>
+    <center><h2>Create New Account</h2></center> 
+    <br/>
+    <div class="shadow-lg p-4 mb-4 bg-white rounded mx-auto">
+        <form method="POST">
+        {{ form.hidden_tag() }}    
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.password_confirmation) }}
+        <center>{{ wtf.form_field(form.submit)}}</center>
+        </form>
+        <p>
+        <center> Already have an account? <a href="/">Log in</a> </center>
+    </div>
+  </div>
+</div>
+<br/>
+{% endblock %}

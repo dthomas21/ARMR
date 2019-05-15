@@ -1,0 +1,13 @@
+notebooks/.ipynb_checkpoints
+**/.ipynb_checkpoints/
+**/*DS_Store
+**/*.vscode
+models/
+code/__pycache__
+code/app/__pycache__
+*.db
+*.idea
+scraping/transcriptions.txt
+documentation/*
+code/app/*.pyc
+code/*.pyc
